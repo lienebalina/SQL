@@ -1,21 +1,33 @@
+import { ACTORS, DIRECTORS, GENRES, KEYWORDS, MOVIES, PRODUCTION_COMPANIES } from "../table-names";
+
 export const selectActorByName = (fullName: string): string => {
-  throw new Error(`todo`);
+  return (
+    `select full_name from ${ACTORS} where full_name = '${fullName}'`
+  );
 };
 
 export const selectKeyword = (keyword: string): string => {
-  throw new Error(`todo`);
+  return (
+    `select keyword from ${KEYWORDS} where keyword = '${keyword}'`
+  );
 };
 
 export const selectDirector = (director: string): string => {
-  throw new Error(`todo`);
+  return (
+    `select full_name from ${DIRECTORS} where full_name = '${director}'`
+  );
 };
 
 export const selectGenre = (genre: string): string => {
-  throw new Error(`todo`);
+  return (
+    `select genre from ${GENRES} where genre = '${genre}'`
+  );
 };
 
 export const selectProductionCompany = (company: string): string => {
-  throw new Error(`todo`);
+  return (
+    `select company_name from ${PRODUCTION_COMPANIES} where company_name = '${company}'`
+  );
 };
 
 export const selectMovieById = (id: number): string => {
@@ -43,7 +55,9 @@ export const selectProductionCompanyById = (id: number): string => {
 };
 
 export const selectMovie = (imdbId: string): string => {
-  throw new Error(`todo`);
+  return (
+    `select imdb_id, original_title from ${MOVIES} where imdb_id = '${imdbId}'`
+  );
 };
 
 export const selectMovieId = (imdbId: string): string => {
@@ -78,5 +92,7 @@ export const selectProductionCompaniesByMovieId = (movieId: number): string => {
  * select count as c, because an object is returned and expected property name is c
  */
 export const selectCount = (table: string): string => {
-  throw new Error(`todo`);
+  return (
+    `select count(*) as c from ${table}`
+  );
 };
