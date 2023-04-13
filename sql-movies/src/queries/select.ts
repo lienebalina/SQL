@@ -56,7 +56,7 @@ export const selectProductionCompanyById = (id: number): string => {
 
 export const selectMovie = (imdbId: string): string => {
   return (
-    `select imdb_id, original_title from ${MOVIES} where imdb_id = '${imdbId}'`
+    `select * from ${MOVIES} where imdb_id = '${imdbId}'`
   );
 };
 
