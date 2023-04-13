@@ -6,7 +6,8 @@ import {
   MOVIE_ACTORS,
   MOVIE_DIRECTORS,
   MOVIE_KEYWORDS,
-  MOVIE_PRODUCTION_COMPANIES
+  MOVIE_PRODUCTION_COMPANIES,
+  GENRES
 } from "../src/table-names";
 import {
   selectCount,
@@ -32,7 +33,11 @@ const insertMovieGenres = (
   genres: string[],
   genreRows: GenreRow[]
 ): string => {
-  throw new Error(`todo`);
+  const filtered = genreRows.filter(x => genres.indexOf(x.genre) != -1);
+  return(
+    `insert into movie_genres (movie_id, genre_id) values ` +
+    filtered.map(genre => `('${movieId}', '${genre.id}')`).join(",")
+  );
 };
 
 const insertMovieActors = (
@@ -79,7 +84,7 @@ describe("Insert Relationship Data", () => {
     "should insert genre relationship data",
     async done => {
       const movies = await CsvLoader.movies();
-      const genreRows = (await db.selectMultipleRows(`todo`)) as GenreRow[];
+      const genreRows = (await db.selectMultipleRows(`select id, genre from ${GENRES}`)) as GenreRow[];
       const moviesByImdbId = _.groupBy(await CsvLoader.movies(), "imdbId");
 
       for (const imdbId of Object.keys(moviesByImdbId)) {
