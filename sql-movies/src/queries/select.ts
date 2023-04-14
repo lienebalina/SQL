@@ -35,7 +35,9 @@ export const selectMovieById = (id: number): string => {
 };
 
 export const selectGenreById = (id: number): string => {
-  throw new Error(`todo`);
+  return (
+    `select genre from ${GENRES} where id = '${id}'`
+  );
 };
 
 export const selectDirectorById = (id: number): string => {
