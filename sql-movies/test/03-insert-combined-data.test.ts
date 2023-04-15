@@ -10,7 +10,7 @@ import { MOVIE_RATINGS } from "../src/table-names";
 import { Rating } from "../src/data/types";
 import { minutes } from "./utils";
 
-const insertRatings = async (movieId: number, ratings: Rating[]) => {
+const insertRatings = (movieId: number, ratings: Rating[]) => {
   return(
     `insert into movie_ratings (user_id, movie_id, rating, time_created) values ` +
     ratings.map(rating => `('${rating.userId}', '${movieId}', '${rating.rating}', '${rating.time_created}')`).join(",")
@@ -34,7 +34,7 @@ describe("Insert Combined Data", () => {
         const movieId = (await db.selectSingleRow(selectMovieId(imdbId))).id;
         const chunks = _.chunk(ratingsByImdbId[imdbId], 500);
         for (const ch of chunks) {
-          await db.insert(await insertRatings(movieId, ch));
+          await db.insert(insertRatings(movieId, ch));
         }
       }
 

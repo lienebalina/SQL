@@ -31,7 +31,9 @@ export const selectProductionCompany = (company: string): string => {
 };
 
 export const selectMovieById = (id: number): string => {
-  throw new Error(`todo`);
+  return (
+    `select * from ${MOVIES} where id = '${id}'`
+  );
 };
 
 export const selectGenreById = (id: number): string => {
@@ -41,19 +43,27 @@ export const selectGenreById = (id: number): string => {
 };
 
 export const selectDirectorById = (id: number): string => {
-  throw new Error(`todo`);
+  return (
+    `select full_name from ${DIRECTORS} where id = '${id}'`
+  );
 };
 
 export const selectActorById = (id: number): string => {
-  throw new Error(`todo`);
+  return (
+    `select full_name from ${ACTORS} where id = '${id}'`
+  );
 };
 
 export const selectKeywordById = (id: number): string => {
-  throw new Error(`todo`);
+  return (
+    `select keyword from ${KEYWORDS} where id = '${id}'`
+  );
 };
 
 export const selectProductionCompanyById = (id: number): string => {
-  throw new Error(`todo`);
+  return (
+    `select company_name from ${PRODUCTION_COMPANIES} where id = '${id}'`
+  );
 };
 
 export const selectMovie = (imdbId: string): string => {
