@@ -1,4 +1,4 @@
-import { ACTORS, DIRECTORS, GENRES, KEYWORDS, MOVIES, PRODUCTION_COMPANIES } from "../table-names";
+import { ACTORS, DIRECTORS, GENRES, KEYWORDS, MOVIES, MOVIE_RATINGS, PRODUCTION_COMPANIES } from "../table-names";
 
 export const selectActorByName = (fullName: string): string => {
   return (
@@ -31,41 +31,56 @@ export const selectProductionCompany = (company: string): string => {
 };
 
 export const selectMovieById = (id: number): string => {
-  throw new Error(`todo`);
+  return (
+    `select * from ${MOVIES} where id = '${id}'`
+  );
 };
 
 export const selectGenreById = (id: number): string => {
-  throw new Error(`todo`);
+  return (
+    `select genre from ${GENRES} where id = '${id}'`
+  );
 };
 
 export const selectDirectorById = (id: number): string => {
-  throw new Error(`todo`);
+  return (
+    `select full_name from ${DIRECTORS} where id = '${id}'`
+  );
 };
 
 export const selectActorById = (id: number): string => {
-  throw new Error(`todo`);
+  return (
+    `select full_name from ${ACTORS} where id = '${id}'`
+  );
 };
 
 export const selectKeywordById = (id: number): string => {
-  throw new Error(`todo`);
+  return (
+    `select keyword from ${KEYWORDS} where id = '${id}'`
+  );
 };
 
 export const selectProductionCompanyById = (id: number): string => {
-  throw new Error(`todo`);
+  return (
+    `select company_name from ${PRODUCTION_COMPANIES} where id = '${id}'`
+  );
 };
 
 export const selectMovie = (imdbId: string): string => {
   return (
-    `select imdb_id, original_title from ${MOVIES} where imdb_id = '${imdbId}'`
+    `select * from ${MOVIES} where imdb_id = '${imdbId}'`
   );
 };
 
 export const selectMovieId = (imdbId: string): string => {
-  throw new Error(`todo`);
+  
+  return `select id from ${MOVIES} where imdb_id = '${imdbId}'`
 };
 
 export const selectRatingsByUserID = (userId: number): string => {
-  throw new Error(`todo`);
+  return (
+    `select user_id, rating, time_created from ${MOVIE_RATINGS} where user_id = '${userId}'`
+  );
 };
 
 export const selectGenresByMovieId = (movieId: number): string => {
