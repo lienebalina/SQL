@@ -5,7 +5,7 @@ This repository consists of exercises to train your skills on SQL. SQLite was ch
 ## Prerequisites
 
  - basic coding knowledge is preferred, especially string manipulations in JavaScipt / TypeScript;
- - `node v13.7.0` & `npm v 6.13.6` installed on your machine
+ - `node v13.7.0` & `npm v6.13.6` installed on your machine
  - understanding the basic concepts of SQL, tutorials [@sqlzoo.net](https://sqlzoo.net/) should be enough
 
 ## Getting Ready
